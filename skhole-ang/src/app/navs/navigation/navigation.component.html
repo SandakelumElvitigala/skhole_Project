@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" routerLink="/tutor">Skhole</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" routerLink="/home">
+                    <a class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item" routerLink="/dashboardTutor">
+                    <a class="nav-link ">About Us</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">Contact Us</a>
+                </li>
+            </ul>
+            <form class="d-flex " role="search ">
+                <button type="button" class="btn btn-outline-success " data-bs-toggle="modal" data-bs-target="#log">Login</button>
+                <button type="button" class="btn btn-outline-primary ms-2 " data-bs-toggle="modal" data-bs-target="#reg">Register</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade " id="reg" data-bs-backdrop="static " data-bs-keyboard="false " tabindex="-1 " aria-labelledby="staticBackdropLabel " aria-hidden="true ">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content shadow-lg border-0 rounded-4 animate-modal minimalist-dark ">
+            <div class="modal-header text-white ">
+                <h1 class="modal-title fs-4 " id="staticBackdropLabel ">Register</h1>
+                <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4 py-3 ">
+                <p class="text-muted mb-4 text-center ">Sign up to access all features!</p>
+                <form #registerForm="ngForm">
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control minimalist-input" id="name" placeholder="Full Name" #name>
+                        <label for="floatingName">Full Name</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control minimalist-input" id="username" placeholder="Username" #username>
+                        <label for="floatingUsername">Username</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="email" class="form-control minimalist-input" id="email" placeholder="Email" #email>
+                        <label for="floatingEmail">Email Address</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control minimalist-input" id="password" placeholder="Password" #password>
+                        <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control minimalist-input" id="passwordRepeat" placeholder="Repeat Password" #passwordRepeat>
+                        <label for="floatingPasswordRepeat">Repeat Password</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <select name="role" id="role" class="form-control minimalist-input" #role>
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="Tutor">Tutor</option>
+                        <option value="Student">Student</option>
+                      </select>
+                        <label for="role">Role</label>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer justify-content-between ">
+                <button type="button " class="btn btn-outline-secondary minimalist-btn " data-bs-dismiss="modal ">Close</button>
+                <button type="button " class="btn btn-primary minimalist-btn " id="regBtn " (click)="register() " data-bs-dismiss="modal">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="log" data-bs-backdrop="static " data-bs-keyboard="false " tabindex="-1 " aria-labelledby="staticBackdropLabel " aria-hidden="true ">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content shadow-lg border-0 rounded-4 animate-modal minimalist-dark ">
+            <div class="modal-header text-white ">
+                <h1 class="modal-title fs-4 " id="staticBackdropLabel ">Login</h1>
+                <button type="button " class="btn-close btn-close-white " data-bs-dismiss="modal " aria-label="Close "></button>
+            </div>
+            <div class="modal-body px-4 py-3 ">
+                <form>
+                    <div class="form-floating mb-4 ">
+                        <input type="email " class="form-control minimalist-input " id="floatingEmail " placeholder="Email " #mail>
+                        <label for="floatingEmail ">Email Address</label>
+                    </div>
+                    <div class="form-floating mb-4 ">
+                        <input type="password " class="form-control minimalist-input " id="floatingPassword " placeholder="Password " #pw>
+                        <label for="floatingPassword ">Password</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-between ">
+                <button type="button " class="btn btn-outline-secondary minimalist-btn " data-bs-dismiss="modal ">Close</button>
+                <button type="button " class="btn btn-primary minimalist-btn" (click)="login()" data-bs-dismiss="modal">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" routerLink="/tutor">Skhole | <i>Tutor</i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" routerLink="/dashboardTutor">
+                    <a class="nav-link active" aria-current="page">Dashboard</a>
+                </li>
+                <li class="nav-item" data-bs-toggle="modal" data-bs-target="#vid">
+                    <a class="nav-link ">Upload Video</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# " disabled>Upload Quiz</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# " routerLink="/schedule">Schedule a Class</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# " routerLink="/advertise">Advertise</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">History</a>
+                </li>
+            </ul>
+            <form class="d-flex " role="search ">
+                <button type="button" class="btn btn-outline-danger ">Sign Out</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!--Video Uploading-->
+<div class="modal fade" id="vid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Upload a Video</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Video Title</label>
+                    <input type="text" class="form-control" id="title">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" id="desc" rows="3"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example" id="grade">
+                        <option selected>Grade</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="6">09</option>
+                        <option value="OL">10 (O/L)</option>
+                        <option value="OL">11 (O/L)</option>
+                        <option value="AL">AL</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example" id="subject">
+                        <option selected>Subject</option>
+                        <option value="Sinhala">Sinhala</option>
+                        <option value="Budhism">Budhism</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Upload Video</label>
+                    <input type="file" class="form-control" id="videoInput">
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Upload Thumbnail</label>
+                    <input type="file" class="form-control" id="thumbnailInput">
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Upload PDF</label>
+                    <input type="file" class="form-control" id="pdfInput">
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="uploadVideos()">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>

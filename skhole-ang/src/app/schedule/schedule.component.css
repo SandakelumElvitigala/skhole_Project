@@ -1,0 +1,30 @@
+.meeting-list {
+    list-style: none;
+    padding: 0;
+}
+
+.meeting-list li {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.meeting-list h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.meeting-list p {
+    margin: 5px 0;
+}
+
+.meeting-list a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.meeting-list a:hover {
+    text-decoration: underline;
+}

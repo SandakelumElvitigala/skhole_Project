@@ -1,0 +1,130 @@
+<app-tutor-nav></app-tutor-nav>
+
+
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+      <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+        </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+        </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+        </button>
+        </li>
+    </ul>
+</div>
+
+
+<main>
+    <div class="container py-4">
+
+
+
+        <div class="row mt-5 align-items-md-stretch">
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h5>Schedule a class</h5>
+                    <br><br>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="titl">
+                    </div>
+                    <div class=" mb-3 ">
+                        <label for="exampleFormControlTextarea1 " class="form-label ">Description</label>
+                        <textarea class="form-control " id="descr" rows=" 3 "></textarea>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="exampleFormControlInput1 " class="form-label ">Room</label>
+                        <input type="text " class="form-control " id="room" placeholder="Please insert a unique name ">
+                    </div>
+                    <div class="mb-3 ">
+                        <select class="form-select " aria-label="Default select example " id="grade">
+                            <option selected>Grade</option>
+                            <option value="6 ">06</option>
+                            <option value="7 ">07</option>
+                            <option value="8 ">08</option>
+                            <option value="6 ">09</option>
+                            <option value="OL ">10 (O/L)</option>
+                            <option value="OL ">11 (O/L)</option>
+                            <option value="AL ">AL</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 ">
+                        <select class="form-select " aria-label="Default select example " id="subject">
+                            <option selected>Subject</option>
+                            <option value="Sinhala ">Sinhala</option>
+                            <option value="Budhism ">Budhism</option>
+                            <option value="Mathematics ">Mathematics</option>
+                            <option value="Science ">Science</option>
+                            <option value="English ">English</option>
+                            <option value="History ">History</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 ">
+                        <label for="exampleFormControlInput1 " class="form-label ">Date and Time</label>
+                        <input type="datetime-local" class=" form-control " id="date">
+                    </div>
+
+                    <div class="mb-3 me-3 ">
+                        <button class="btn btn-outline-success " (click)="scheduleClass() ">Schedule</button>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-6 " style="overflow-y: scroll; max-height: 110vh;">
+                <div class="h-100 p-5 bg-body-tertiary border rounded-3 ">
+                    <h5>Scheduled Classes</h5>
+                    <div *ngIf="meetingLink" class="meeting-link">
+                        <p>Your meeting is scheduled! Here is your link:</p>
+                        <a [href]="meetingLink" target="_blank">{{ meetingLink }}</a>
+                    </div>
+
+                    <p *ngIf="meetings.length === 0">No meetings scheduled.</p>
+
+                    <ul *ngIf="meetings.length > 0" class="meeting-list">
+                        <li *ngFor="let meeting of meetings">
+                            <h3>{{ meeting.title }}</h3>
+                            <p><strong>Description:</strong> {{ meeting.desc }}</p>
+                            <p><strong>Room:</strong> {{ meeting.room }}</p>
+                            <p><strong>Grade:</strong> {{ meeting.grade }}</p>
+                            <p><strong>Subject:</strong> {{ meeting.subject }}</p>
+                            <p><strong>Date:</strong> {{ meeting.date }}</p>
+                            <p>
+                                <strong>Meeting Link:</strong>
+                                <a [href]="meeting.link" target="_blank">{{ meeting.link }}</a>
+                            </p>
+                        </li>
+                    </ul>
+
+
+                    <!--button class="btn btn-outline-secondary " type="button ">Example button</button-->
+                </div>
+            </div>
+        </div>
+
+        <footer class="pt-3 mt-4 text-body-secondary border-top ">
+            &copy; 2024
+        </footer>
+    </div>
+</main>
+<!-- Jitsi Meeting Container -->
+<div id="jitsi-container " style="height: 500px; "></div>
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>

@@ -1,0 +1,15 @@
+.topsec {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-inner {
+    display: flex;
+    justify-self: center;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+}
